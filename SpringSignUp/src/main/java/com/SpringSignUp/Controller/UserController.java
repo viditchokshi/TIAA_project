@@ -1,6 +1,8 @@
 package com.SpringSignUp.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +58,19 @@ public class UserController {
 	
 	@RequestMapping(value = {"/signup"}, method = RequestMethod.GET)
 	public ModelAndView home() {
+		ModelAndView model = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
 		
+		model.addObject("userName",user.getFirstname() + " " + user.getLastname());
+		model.setViewName("home/home");
+		return model;
+	}
+	
+	@RequestMapping(value = {"/access_denied"}, method = RequestMethod.GET)
+	public ModelAndView accessDenied() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("errors/access_denied");
+		return model;
 	}
 }
