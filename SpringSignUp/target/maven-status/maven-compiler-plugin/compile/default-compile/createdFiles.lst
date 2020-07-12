@@ -1,0 +1,10 @@
+com\SpringSignUp\Model\User.class
+com\SpringSignUp\Configuration\WebMvcConfig.class
+com\SpringSignUp\SpringSignUpApplication.class
+com\SpringSignUp\Service\UserServiceImpl.class
+com\SpringSignUp\Repository\RoleRespository.class
+com\SpringSignUp\Controller\UserController.class
+com\SpringSignUp\Configuration\SecurityConfiguration.class
+com\SpringSignUp\Service\UserService.class
+com\SpringSignUp\Model\Role.class
+com\SpringSignUp\Repository\UserRepository.class
